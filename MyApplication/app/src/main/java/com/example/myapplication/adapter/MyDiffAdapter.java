@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.recyclerview.extensions.AsyncListDiffer;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import com.example.myapplication.model.TextModel;
 
 import java.util.List;
 
-public class MyDiffAdapter  extends RecyclerView.Adapter {
+public class MyDiffAdapter extends RecyclerView.Adapter {
     private Context mContext;
     private AsyncListDiffer<TextModel> mTextDiffl;
     private DiffUtil.ItemCallback<TextModel> diffCallback = new MyItemCallBack();
@@ -35,7 +36,8 @@ public class MyDiffAdapter  extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        MyAdapter.MyViewHolder myViewHolder = (MyAdapter.MyViewHolder) holder;
+        Log.e("ref", "position: "+position );
+        MyViewHolder myViewHolder = (MyViewHolder) holder;
         TextModel textModel = getItem(position);
         myViewHolder.tv.setText(textModel.getTextTitle() + "." + textModel.getTextContent());
     }
@@ -44,7 +46,9 @@ public class MyDiffAdapter  extends RecyclerView.Adapter {
     public int getItemCount() {
         return mTextDiffl.getCurrentList().size();
     }
+
     public void submitList(List<TextModel> data) {
+        Log.e("ljc ",data.toString());
         mTextDiffl.submitList(data);
     }
 

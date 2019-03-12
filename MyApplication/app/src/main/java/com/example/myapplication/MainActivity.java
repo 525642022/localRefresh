@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.example.myapplication.adapter.MyAdapter;
@@ -74,8 +75,9 @@ public class MainActivity extends AppCompatActivity {
         result.dispatchUpdatesTo(myAdapter);
     }
     public void change1() {
+        mTextModels = new ArrayList<>();
         for(int i = 0; i<10;i++){
-            TextModel textModel= new TextModel("aa"+i,"bb"+i%3);
+            TextModel textModel= new TextModel("aa"+i,"bb"+i%5);
             mTextModels.add(textModel);
         }
         myDiffAdapter.submitList(mTextModels);

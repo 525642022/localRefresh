@@ -3,6 +3,7 @@ package com.example.myapplication.callback;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.example.myapplication.model.TextModel;
 

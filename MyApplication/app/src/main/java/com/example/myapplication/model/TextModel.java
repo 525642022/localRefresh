@@ -24,4 +24,12 @@ public class TextModel {
     public void setTextContent(String textContent) {
         this.textContent = textContent;
     }
+
+    @Override
+    public String toString() {
+        return "TextModel{" +
+                "textTitle='" + textTitle + '\'' +
+                ", textContent='" + textContent + '\'' +
+                '}';
+    }
 }
